@@ -1,0 +1,28 @@
+plugins {
+  id 'java'
+  id 'application'
+  id 'eclipse'
+}
+
+mainClassName = 'clients.VehiclePositionProducer'
+
+repositories {
+    mavenCentral()
+    maven { url 'https://packages.confluent.io/maven/' }
+}
+
+jar {
+    archivesBaseName = 'vp-producer'
+}
+sourceCompatibility = 21
+targetCompatibility = 21
+
+dependencies {
+    implementation group: 'org.eclipse.paho', name: 'org.eclipse.paho.client.mqttv3', version: '1.2.0'
+    implementation group: 'org.apache.kafka', name: 'kafka-clients', version: '2.3.0'
+    implementation group: "io.confluent", name: "monitoring-interceptors", version: '5.3.0'
+    implementation group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.25'
+// https://mvnrepository.com/artifact/org.mongodb/mongodb-driver-sync
+implementation group: 'org.mongodb', name: 'mongodb-driver-sync', version: '5.1.0'
+    
+}
